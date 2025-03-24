@@ -4,7 +4,7 @@ project(Maze3)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Maze3
-        test.cpp
+        main.cpp
         position.cpp
         mazeUtils.cpp
         maze.cpp

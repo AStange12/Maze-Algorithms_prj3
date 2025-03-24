@@ -41,7 +41,6 @@ Maze::Maze(int width, int height) {
 
 
 /* Destructor: Cleans up dynamically allocated memory.
- * dependencies: None.
  */
 Maze::~Maze() {
     for (int y = 0; y < height; y++) {
@@ -55,7 +54,6 @@ Maze::~Maze() {
 
 /* Returns the width of the maze.
  * @return width: int, the width of the maze.
- * dependencies: None.
  */
 int Maze::getWidth() {
     return width;
@@ -63,7 +61,6 @@ int Maze::getWidth() {
 
 /* Returns the height of the maze.
  * @return height: int, the height of the maze.
- * dependencies: None.
  */
 int Maze::getHeight() {
     return height;
@@ -94,12 +91,6 @@ void Maze::setWall(int x, int y) {
     positions[y][x]->setWall();
 }
 
-/* you will need an unordered_map to store the previous of each position */
-/* the keys for this map are the to_string of a position object
- * the associated value should be a pointer to the Position from which
- * you saw the key
- */
-
 /* Solves the maze using Breadth-First Search (BFS).
  * @return vector<Position*>, the path to the goal position or an empty vector if no path exists.
  * dependencies: getNeighbors function.
@@ -120,6 +111,7 @@ vector<Position*> Maze::solveBreadthFirst() {
             while (current != nullptr) { // build the path
                 path.push_back(current);
                 current = cameFrom.find(current->to_string());
+                pathLength++;
             }
             reverse(path.begin(), path.end()); // Reverse the path for correct order
             return path;
@@ -130,6 +122,7 @@ vector<Position*> Maze::solveBreadthFirst() {
             if (!cameFrom.exists(neighbor->to_string())) { // if neighbor not visited
                 q.push(neighbor); // add neighbor to Queue
                 cameFrom.insert(neighbor->to_string(), current); // record prev move as value for neighbors key
+                visitedNodes++;
             }
         }
     }
@@ -157,6 +150,7 @@ vector<Position*> Maze::solveDepthFirst() {
             while (current != nullptr) { // build the path
                 path.push_back(current);
                 current = cameFrom.find(current->to_string());
+                pathLength++;
             }
             reverse(path.begin(), path.end()); // Reverse the path for correct order
             return path;
@@ -166,6 +160,7 @@ vector<Position*> Maze::solveDepthFirst() {
             if (!cameFrom.exists(neighbor->to_string())) { // if neighbor not visited
                 s.push(neighbor); // add neighbor to Stack
                 cameFrom.insert(neighbor->to_string(), current); // record prev move as value for neighbors key
+                visitedNodes++;
             }
         }
     }
@@ -205,4 +200,33 @@ vector<Position*> Maze::getNeighbors(Position* position) {
     }
 
     return neighbors;
+}
+
+/* Returns the length of the path.
+ * @return int, the length of the path.
+ */
+int Maze::getPathLength() {
+    return pathLength;
+}
+
+/* Returns the number of visited nodes.
+ * @return int, the number of visited nodes.
+ */
+int Maze::getVisitedNodes() {
+    return visitedNodes;
+}
+
+/* Prints the maze to the console.
+ */
+void Maze::print() {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            if (positions[y][x]->isWall()) {
+                cout << "#";
+            } else {
+                cout << ".";
+            }
+        }
+        cout << endl;
+    }
 }

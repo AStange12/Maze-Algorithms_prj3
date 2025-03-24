@@ -66,6 +66,23 @@ public:
    */
   vector<Position*> solveDepthFirst();
 
+  /**
+   * Prints the maze to the console.
+   */
+  void print();
+
+  /**
+   * Retrieves the path length.
+   * @return The path length.
+   */
+  int getPathLength();
+
+  /**
+   * Retrieves te number of visited nodes during the search.
+   * @return The number of visited nodes during the search.
+   */
+  int getVisitedNodes();
+
 protected:
   /**
    * A utility method which creates and returns a vector of the valid neighbors
@@ -88,13 +105,17 @@ protected:
    */
   vector<Position*> getNeighbors(Position* position);
 
+
+
   /** A dynamically-allocated two-dimenstional array of pointers to Position
       objects representing the maze. */
   Position*** positions;
 
-  // TODO: put any other fields you need here
+  // Additional fields
   int width;
   int height;
+  int pathLength;
+  int visitedNodes;
 };
 
 #endif //PRGASST02_MAZE_H
