@@ -51,7 +51,7 @@ If you encounter issues, check:
   - Initial Release.
 
 ## Acknowledgments
-- 
-
+- Thank you to [GeeksforGeeks](https://www.geeksforgeeks.org/) and [Stack Overflow](https://stackoverflow.com/) for helpful C++ code snippets and explanations
+- Thank you to [ChatGPT](https://openai.com/chatgpt) for providing fast sometimes insightful explanations during development.
 
 
