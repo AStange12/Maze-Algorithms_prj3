@@ -1,4 +1,4 @@
-/* Assignment: (Project #3) - Maze
+/* Assignment: (Project #2) A-maze-ing Race
  * Author(s): Aaron Stange
  * Due Date: 3/23/25
  *
