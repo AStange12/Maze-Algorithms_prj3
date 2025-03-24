@@ -1,5 +1,4 @@
 #include "position.h"
-#include <stdexcept>
 #include <string>
 
 using namespace std;

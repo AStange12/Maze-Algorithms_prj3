@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <string>
 
-using std::string;
+using namespace std;
 
 /**
  * This class represents data about a single position in a maze.  It

@@ -12,9 +12,9 @@
  * Honor Pledge: I have abided by the Wheaton Honor Code and
  *              all work below was performed by (Aaron Stange).
 */
+
 #include <iostream>
 #include <string>
-#include <utility>
 #include <fstream>
 #include "maze.h"
 #include "mazeUtils.h"
@@ -101,4 +101,4 @@ int main() {
 
 
     return 0;
-}}
+}
