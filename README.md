@@ -42,13 +42,17 @@ If you encounter issues, check:
 ## Authors
 - Aaron Stange: contact info - aaron.w.stange@gmail.com
 
-## Version History
-- **0.2**
-  - Various bug fixes and optimizations.
-  - Improved dictionary implementation for tracking visited nodes.
-  - See [commit change]() or [release history]().
-- **0.1**
-  - Initial Release.
+## Git Log
+* **54ed152** (HEAD -> main, origin/main) - everything but readme
+* **92623fd** - Merge remote-tracking branch 'origin/main'
+  * ├── **2ffd54f** - Create README.md
+* **02ef4c0** - Merge remote-tracking branch 'origin/main'
+  * ├── **43be6b0** - everything but readme
+* **131292c** - everything but readme
+* **e947cfe** - everything but readme
+* **8b78af1** - Initial Commit - Nearly finished with project already/ forgot to make repo earlier ):
+
+
 
 ## Acknowledgments
 - Thank you to [GeeksforGeeks](https://www.geeksforgeeks.org/) and [Stack Overflow](https://stackoverflow.com/) for helpful C++ code snippets and explanations
