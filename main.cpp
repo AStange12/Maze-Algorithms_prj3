@@ -30,8 +30,15 @@ int main() {
     cin >> map;
 
     string search;
-    cout << "Which search  algorithm to use (BFS or DFS)? ";
-    cin >> search;
+    cout << "Which search algorithm to use (BFS or DFS)? ";
+    while (true) {
+        cin >> search;
+        if (search == "BFS" || search == "DFS") {
+            break; // Valid input, exit loop
+        }
+        cout << "Invalid input. Please enter 'BFS' or 'DFS': ";
+    }
+
 
     string outfile;
     cout << "What is the name of the output file? ";
@@ -48,31 +55,36 @@ int main() {
 
         vector<Position*> path;
 
+        ofstream outFile(outfile);
+        if (!outFile) {
+            cerr << "Error: Unable to open output file." << endl;
+            delete maze;
+            return 1;
+        }
+
         cout << search << " Searching..." << endl;
 
         // 3. Call appropriate functions to solve the maze
         if (search == "BFS") {
             path = maze->solveBreadthFirst();
             // 4. Display the solution path to the terminal
-            cout << "Solution Path: \n";
-            cout << "(0, 0)";
+            cout << "Solution Path: \n (0, 0)";
+            outFile << "Solution Path: \n (0, 0)";
             for (int i = 1; i < path.size(); i++) {
                 cout << " -> " << path[i]->to_string();
+                outFile << " -> " << path[i]->to_string();
             }
             cout << endl;
         } else if (search == "DFS") {
             path = maze->solveDepthFirst();
             // 4. Display the solution path to the terminal
-            cout << "Solution Path: \n";
-            cout << "(0, 0)";
+            cout << "Solution Path: \n (0, 0)";
+            outFile << "Solution Path: \n (0, 0)";
             for (int i = 1; i < path.size(); i++) {
                 cout << " -> " << path[i]->to_string();
+                outFile << " -> " << path[i]->to_string();
             }
             cout << endl;
-        } else {
-            cerr << "Error: Invalid search algorithm specified." << endl;
-            delete maze;
-            return 1;
         }
 
         string solution = renderAnswer(maze, path);
@@ -80,12 +92,6 @@ int main() {
 
 
         // 5. Write the solution to the output file
-        ofstream outFile(outfile);
-        if (!outFile) {
-            cerr << "Error: Unable to open output file." << endl;
-            delete maze;
-            return 1;
-        }
         outFile << solution;
         outFile.close();
 
