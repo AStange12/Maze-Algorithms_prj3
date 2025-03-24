@@ -42,7 +42,8 @@ If you encounter issues, check:
 ## Authors
 - Aaron Stange: contact info - aaron.w.stange@gmail.com
 
-## Git Log
+## Git Log 
+### repo made mainly to share completed project rather that help in development
 * **54ed152** (HEAD -> main, origin/main) - everything but readme
 * **92623fd** - Merge remote-tracking branch 'origin/main'
   * ├── **2ffd54f** - Create README.md
